@@ -6,8 +6,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    Ekg_Print_Orderform
+ * @subpackage Ekg_Print_Orderform/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    Ekg_Print_Orderform
+ * @subpackage Ekg_Print_Orderform/includes
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Loader {
+class Ekg_Print_Orderform_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

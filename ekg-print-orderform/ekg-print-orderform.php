@@ -10,7 +10,7 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           Plugin_Name
+ * @package           Ekg_Print_Orderform
  *
  * @wordpress-plugin
  * Plugin Name:       WordPress Plugin Boilerplate
@@ -35,28 +35,28 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'EKG_PRINT_ORDERFORM_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-ekg-print-orderform-activator.php
  */
-function activate_plugin_name() {
+function activate_ekg_print_orderform() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ekg-print-orderform-activator.php';
-	Plugin_Name_Activator::activate();
+	Ekg_Print_Orderform_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-ekg-print-orderform-deactivator.php
  */
-function deactivate_plugin_name() {
+function deactivate_ekg_print_orderform() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ekg-print-orderform-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	Ekg_Print_Orderform_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'activate_ekg_print_orderform' );
+register_deactivation_hook( __FILE__, 'deactivate_ekg_print_orderform' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -73,10 +73,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-ekg-print-orderform.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function run_ekg_print_orderform() {
 
-	$plugin = new Plugin_Name();
+	$plugin = new Ekg_Print_Orderform();
 	$plugin->run();
 
 }
-run_plugin_name();
+run_ekg_print_orderform();
