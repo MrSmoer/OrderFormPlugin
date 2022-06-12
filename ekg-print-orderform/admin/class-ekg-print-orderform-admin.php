@@ -73,8 +73,9 @@ class Ekg_Print_Orderform_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->ekg_print_orderform, plugin_dir_url( __FILE__ ) . 'css/ekg-print-orderform-admin.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style( "orderform-style", plugin_dir_url( __FILE__ ) . 'css/ekg-print-orderform-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->ekg_print_orderform, EKG_PRINT_ORDERFORM_PLUGIN_URL . 'assets/css/orderform.css', array(), $this->version, 'all' );
+		error_log(print_r("Me here3", TRUE)); 
 	}
 
 	/**
@@ -97,6 +98,19 @@ class Ekg_Print_Orderform_Admin {
 		 */
 
 		wp_enqueue_script( $this->ekg_print_orderform, plugin_dir_url( __FILE__ ) . 'js/ekg-print-orderform-admin.js', array( 'jquery' ), $this->version, false );
+
+	}
+
+	public function orderform_manage_menu(){
+		error_log(print_r("Me here2", TRUE)); 
+		$title="Orderform Managing";
+		add_menu_page($title, $title, "manage_options", "ekg-print-orderform", array($this, "ekg_print_orderform_management_dashboard"), "dashicons-hammer");
+		error_log(print_r("Me here4", TRUE)); 
+
+	}
+
+	public function ekg_print_orderform_management_dashboard(){
+		echo "Welcome back!";
 
 	}
 

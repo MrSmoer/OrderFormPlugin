@@ -157,6 +157,9 @@ class Ekg_Print_Orderform {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'orderform_manage_menu' );
+		// error_log(print_r("Me here1", TRUE)); 
+		
 	}
 
 	/**
@@ -172,6 +175,7 @@ class Ekg_Print_Orderform {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		add_shortcode('orderform_shortcode', array($plugin_public, 'load_orderform_content'));
 
 	}
 

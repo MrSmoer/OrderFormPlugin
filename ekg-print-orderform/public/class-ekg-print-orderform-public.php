@@ -97,7 +97,19 @@ class Ekg_Print_Orderform_Public {
 		 */
 
 		wp_enqueue_script( $this->ekg_print_orderform, plugin_dir_url( __FILE__ ) . 'js/ekg-print-orderform-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( "config_visibilty_script", plugin_dir_url( __FILE__ ) . 'js/visibilityOfConfig.js', array( 'jquery' ), $this->version, true );
+		
 
+	}
+
+	public function load_orderform_content(){
+
+		// return "sample";
+		ob_start();
+		include_once EKG_PRINT_ORDERFORM_PLUGIN_PATH.'public/partials/orderform-content.php';
+		$template= ob_get_contents();
+		ob_end_clean();
+		return $template;
 	}
 
 }

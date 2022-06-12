@@ -1,0 +1,76 @@
+:root {
+    --size: 20px;
+    --outline: 1px;
+    --disabledOutline: rgb(0, 0, 0);
+    --enabledOutline: rgb(1, 255, 86);
+}
+
+
+#onlineConfig{
+    display: none;
+}
+
+#uploadConfig{
+    display: none;
+}
+
+
+table:has(tr)>tr{
+    display: none;
+}
+
+[value="upload"]:checked+#uploadConfig{
+    display: block;
+}
+
+
+.dotS[filCo="blue"]{
+    --co: rgb(40, 105, 192);
+    background-color: var(--co);
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    border-width: var(--outline);
+    border-color: var(--disabledOutline);
+    border-style: solid;
+    display: inline-block;
+}
+.dotS[filCo="white"]{
+    --co:rgb(255, 255, 255);
+    background-color: var(--co);
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    border-width: var(--outline);
+    border-color: var(--disabledOutline);
+    border-style: solid;
+    display: inline-block;
+}
+.dotS[filCo="tpu"]{
+    --co: rgb(0, 0, 0);
+    background-color: var(--co);
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    border-width: var(--outline);
+    border-color: var(--disabledOutline);
+    border-style: solid;
+    display: inline-block;
+}
+
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+/* IMAGE STYLES */
+[type=radio] + .dotS {
+    cursor: pointer;
+}
+/* CHECKED STYLES */
+[type=radio]:checked + span {
+    border-color: var(--enabledOutline);
+    border-width: 2px;
+}

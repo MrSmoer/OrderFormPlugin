@@ -13,7 +13,7 @@
  * @package           Ekg_Print_Orderform
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
+ * Plugin Name:       EKG-Print Orderform Plugin
  * Plugin URI:        https://github.com/MrSmoer/OrderFormPlugin.git
  * Description:       This plugin is made to accept orders for 3D-Printing.
  * Version:           1.0.0
@@ -36,6 +36,8 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'EKG_PRINT_ORDERFORM_VERSION', '1.0.0' );
+define( 'EKG_PRINT_ORDERFORM_PLUGIN_URL', plugin_dir_url(__FILE__) );
+define( 'EKG_PRINT_ORDERFORM_PLUGIN_PATH', plugin_dir_path(__FILE__) );
 
 /**
  * The code that runs during plugin activation.
