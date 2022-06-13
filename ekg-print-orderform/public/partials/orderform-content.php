@@ -1,9 +1,11 @@
 <?php
+error_log(print_r("form return", TRUE));
 ?>
-<form>
+<form enctype="multipart/form-data" action="<?php echo add_query_arg( $wp->query_vars, home_url( $wp->request ) ); ?>" method="POST">
     <table>
         <tr>
-            <td>Upload your .stl file here: </td>
+            <td><label for="objfile">Upload your .stl file here: </label></td>
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000"/>
             <td><input type="file"></td>
         </tr>
         <tr>
@@ -36,13 +38,12 @@
             <td><label for="selectConfigMode">Configure mode:</label></td>
             <td><select name="selectConfigMode" id="configMode" onChange="activated(this)" autocomplete="off">
                     <option value="autoconfig" selected>Print with standard configuration</option>
-                    <option value="online" style="display: none;">Configure online</option> <!-- TODO -->
-                    <option value="upload">Upload Slic3r config-file</option>
+                    <option value="online" disabled>Configure online</option> <!-- TODO -->
+                    <option value="upload" disabled>Upload Slic3r config-file</option>
                 </select></td>
         </tr>
     </table>
     <div id="configDivs">
-
         <div id="onlineConfig">
             <li class="laysNPers">
                 <ul>
