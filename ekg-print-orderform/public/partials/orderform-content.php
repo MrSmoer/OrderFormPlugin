@@ -1,12 +1,32 @@
 <?php
 error_log(print_r("form return", TRUE));
+
+// Upload file
+if(isset($_POST['but_submit'])){
+
+  if($_FILES['file']['name'] != ''){
+    $uploadedfile = $_FILES['file'];
+    $upload_overrides = array( 'myform' => false );
+
+    $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+    $imageurl = "";
+    if ( $movefile && ! isset( $movefile['error'] ) ) {
+       $imageurl = $movefile['url'];
+       echo "url : ".$imageurl;
+       error_log(print_r("form return: ".$imageurl, TRUE));
+    } else {
+       echo $movefile['error'];
+    }
+  }
+}
 ?>
-<form enctype="multipart/form-data" action="<?php echo add_query_arg( $wp->query_vars, home_url( $wp->request ) ); ?>" method="POST">
+<!--  action="<?php echo add_query_arg( $wp->query_vars, home_url( $wp->request ) ); ?>" -->
+<form enctype="multipart/form-data" method="POST" name='myform'>
     <table>
         <tr>
             <td><label for="objfile">Upload your .stl file here: </label></td>
             <input type="hidden" name="MAX_FILE_SIZE" value="30000"/>
-            <td><input type="file"></td>
+            <td><input type="file" name="file"></td>
         </tr>
         <tr>
             <td><label for="printerselect">Select Printer:</label></td>
@@ -71,5 +91,5 @@ error_log(print_r("form return", TRUE));
 
     </div>
 
-    <input type="submit" value="Anfragen">
+    <input type="submit" name='but_submit' value="Anfragen">
 </form>
